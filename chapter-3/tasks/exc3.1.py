@@ -14,6 +14,7 @@ p = np.zeros(50)
 p[:3] = [-1, 2, -1]
 p = np.roll(p, -1)
 p = 2 * p
+# p = -p
 
 V = laminate_array_to_matrix(p)
 n = V.shape[0]
