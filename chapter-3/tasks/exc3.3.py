@@ -3,6 +3,7 @@ from __future__ import division
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import numpy as np
+from util import laminate_array_to_matrix
 
 
 def generate_input(start, stop, distract=False, noise=False):
@@ -16,14 +17,6 @@ def generate_input(start, stop, distract=False, noise=False):
     if noise:
         input += np.random.normal(size=len(input))
     return input
-
-
-def laminate_array_to_matrix(array):
-    n = len(array)
-    matrix = np.zeros((n, n))
-    for i in range(n):
-        matrix[i, :] = np.roll(array, i)
-    return matrix
 
 
 def gauss_pro(s=np.arange(-25, 26), sd=1):
@@ -61,9 +54,9 @@ fig = plt.figure(figsize=(8, 8))
 ax_W = fig.add_subplot(121, projection='3d')
 W_x = np.arange(n)
 W_y = np.arange(n)
-W_x, W_y = np.meshgrid(W_y, W_y)
+W_x, W_y = np.meshgrid(W_y, W_x)
 ax_W.set_title('Weights')
-ax_W.plot_surface(W_x, W_y, W)
+ax_W.plot_surface(W_y, W_x, W)
 
 ax_y = fig.add_subplot(122, projection='3d')
 y_n = np.arange(n)
