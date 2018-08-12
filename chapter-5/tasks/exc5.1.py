@@ -14,9 +14,7 @@ input = np.array([
     [1, 1, 3],
 ])
 input = input / np.linalg.norm(input, axis=1, keepdims=True)
-print(input)
 output = kohonen_som(input, n_out=6, n_hood=1, n_its=100)
-print(output)
 
 plt.imshow(output, cmap='gray')
 plt.colorbar()
