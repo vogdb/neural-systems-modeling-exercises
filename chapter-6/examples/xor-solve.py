@@ -4,12 +4,6 @@ from keras.optimizers import SGD
 
 import numpy as np
 
-# x_train = np.array([
-#     [0, 0, 1],
-#     [1, 0, 1],
-#     [0, 1, 1],
-#     [1, 1, 1],
-# ])
 x_train = np.array([
     [0, 0],
     [1, 0],
@@ -19,12 +13,13 @@ x_train = np.array([
 y_train = np.array([0, 1, 1, 0])[:, np.newaxis]
 
 model = Sequential()
-model.add(Dense(1, activation='sigmoid', input_dim=x_train.shape[1]))
+model.add(Dense(2, activation='sigmoid', input_dim=x_train.shape[1]))
+model.add(Dense(1, activation='sigmoid'))
 
 sgd = SGD(lr=1.)
 model.compile(loss='mean_squared_error', optimizer=sgd)
 
-model.fit(x_train, y_train, epochs=100000, verbose=0)
+model.fit(x_train, y_train, epochs=10000, verbose=0)
 
 y_predict = model.predict(x_train)
 print(y_predict)
