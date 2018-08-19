@@ -19,6 +19,7 @@ def train(X, y, lr=.1, epoch_num=10000, tolerance=.1, p=0.005):
     epoch = 0
     while error > tolerance:
         perturbation = p * np.random.choice([-1, 1], size=W.shape)
+        # perturbation = p * np.random.normal(size=W.shape)
         W_perturbed = W + perturbation
         error_new = calc_error(predict(W_perturbed))
         d_error = error_new - error
@@ -48,7 +49,7 @@ if __name__ == "__main__":
 
     y_train = np.array([1, 1, 0, 0])[:, np.newaxis]
 
-    y_predict, W, epoch = train(X_dense, y_train)
+    y_predict, W, epoch = train(X_sparse, y_train)
     print(epoch)
     print(y_predict)
     print(W)
