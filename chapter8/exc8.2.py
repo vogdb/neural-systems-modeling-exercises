@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-train_num = 20000
+train_num = 2000
 lr = .01
 
 f = .5
@@ -33,7 +33,6 @@ for c in range(train_num):
     y = 1. / (1 + np.exp(-q))
     if c % batch_size == 0:
         V += del_V
-        V[V < 0] = 0
         b += del_b
         del_V = np.zeros(V.shape)
         del_b = np.zeros(b.shape)
@@ -62,3 +61,5 @@ ax_restored2.set_title('restored')
 ax_restored2.plot(y[1])
 
 plt.savefig('exc8.2.svg')
+
+print(V)
