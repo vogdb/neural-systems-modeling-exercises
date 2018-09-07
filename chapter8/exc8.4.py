@@ -21,5 +21,5 @@ pyx0 = pyx0[:, np.newaxis]
 pyx1 = pyx1[:, np.newaxis]
 condi = np.hstack((pyx0, pyx1))
 
-h_x, h_y, I = infocomp([px0, px0], condi)
+h_x, h_y, I = infocomp([px0, px1], condi)
 print('H_X: {:.2f}, H_Y: {:.2f}, I: {:.2f}'.format(h_x, h_y, I))
