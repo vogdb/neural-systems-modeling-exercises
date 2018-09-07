@@ -51,23 +51,23 @@ pvat1 = np.diag(D2pvat1)
 pvat0 = np.diag(D2pvat0)
 # cross-modal cut evidence
 pva = np.diag(D2pva)
-# audio specific cut likelihoods
-pvaBGt1 = D2pvat1[:, bg_a_idx]
-pvaBGt0 = D2pvat0[:, bg_v_idx]
-# audio specific cut evidence
-pvaBG = D2pva[:, bg_v_idx]
 # visual specific cut likelihoods
-pvBGat1 = D2pvat1[bg_v_idx, :]
-pvBGat0 = D2pvat0[bg_v_idx, :]
+pvaBGt1 = D2pvat1[bg_a_idx, :]
+pvaBGt0 = D2pvat0[bg_a_idx, :]
 # visual specific cut evidence
-pvBGa = D2pva[bg_v_idx, :]
+pvaBG = D2pva[bg_a_idx, :]
+# audio specific cut likelihoods
+pvBGat1 = D2pvat1[:, bg_v_idx]
+pvBGat0 = D2pvat0[:, bg_v_idx]
+# audio specific cut evidence
+pvBGa = D2pva[:, bg_v_idx]
 
 # posterior
 # cross-modal
 pt1va = (pvat1 * pt1) / pva
-# audio
-pt1vaBG = (pvaBGt1 * pt1) / pvaBG
 # visual
+pt1vaBG = (pvaBGt1 * pt1) / pvaBG
+# audio
 pt1vBGa = (pvBGat1 * pt1) / pvBGa
 
 # MSE
@@ -80,8 +80,8 @@ plt.figure(figsize=(12, 8))
 ax1 = plt.subplot(121)
 ax1.set_title('visual and auditory input')
 ax1.plot(val_range, pt1va, 'r', label='cross-modal')
-ax1.plot(val_range, pt1vaBG, 'g', label='auditory')
-ax1.plot(val_range, pt1vBGa, 'b', label='visual')
+ax1.plot(val_range, pt1vaBG, 'g', label='visual')
+ax1.plot(val_range, pt1vBGa, 'b', label='auditory')
 ax1.legend()
 
 ax2 = plt.subplot(122)
