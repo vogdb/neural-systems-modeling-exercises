@@ -2,7 +2,7 @@ from __future__ import division
 import numpy as np
 import matplotlib.pyplot as plt
 
-n_units = 8
+n_units = 20
 n_in = 2
 n_b = 1
 b = 1
@@ -33,7 +33,7 @@ def train(M, H):
         q = M.dot(z)
         y = 1 / (1 + np.exp(-q))
         # the last unit is the output
-        e = dout - y[-1]
+        e = dout - y[n_units - 1]
         H_pre = H
         H = np.zeros(H.shape)
         for k in range(n_units):
@@ -43,7 +43,7 @@ def train(M, H):
                 H[:, :, k] = H[:, :, k] + hold
             d_squash = y[k] * (1 - y[k])
             H[:, :, k] = d_squash * H[:, :, k]
-        deltaM = e * H[:, :, -1]
+        deltaM = e * H[:, :, n_units - 1]
         deltaM = lr * deltaM * msk
         M = M + deltaM
         item = np.random.rand()
@@ -62,7 +62,7 @@ def train(M, H):
 
 def test(M):
     bg = .01
-    test_time = 60
+    test_time = 100
     level_list = np.arange(0.1, 1, .1)
     n_level = len(level_list)
     out = np.zeros((n_units, test_time, n_level))
@@ -71,7 +71,7 @@ def test(M):
     # gate in
     gate[int(test_time / 3)] = 1
     # gate out
-    gate[int(2 * test_time / 3)] = 1
+    # gate[int(2 * test_time / 3)] = 1
 
     # find responses of each level on the time range of `test_time`
     for l in range(n_level):
@@ -102,9 +102,5 @@ def test(M):
     plt.show()
 
 
-try:
-    M = np.loadtxt('short_term_mem.txt')
-except Exception:
-    M = train(M, H)
-    np.savetxt('short_term_mem.txt', M)
+M = train(M, H)
 test(M)
