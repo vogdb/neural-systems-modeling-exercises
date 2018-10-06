@@ -18,10 +18,14 @@ for i in range(n):
     prbV_gT[:, i] = profileV_gT
     profileV_gT = np.roll(profileV_gT, 1)
 
+print('Probability of V(t) given T(t):')
 print(prbV_gT)
+print('Probability of T(t) given T(t-1),A(t-1)=0:')
+print(prbT_gT_A0)
 
 # previous estimate T = 0 (center fovea position)
 prevT_est = [0, 0, 0, 1, 0, 0, 0]
+# prevT_est = np.ones(n) / n
 
 # current prior T, assume that saccade didn't happen, A(t-1) = 0
 currT_prior = prbT_gT_A0.dot(prevT_est)
