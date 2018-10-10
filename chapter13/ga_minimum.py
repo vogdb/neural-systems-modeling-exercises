@@ -14,7 +14,7 @@ population_size = 5
 chromosome_len = 5
 generation_num = 100
 mutation_rate = 0.02
-# each row is a genotype, e.g. chromosome, each column is a gene
+# each row is a genotype, e.g. chromosome, each column is a bit of single gene
 population = np.random.randint(0, 2, (population_size, chromosome_len))
 generation_mean_record = np.zeros(generation_num)
 for g in range(generation_num):
