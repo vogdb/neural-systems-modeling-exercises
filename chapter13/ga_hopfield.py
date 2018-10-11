@@ -67,7 +67,7 @@ population_size = 5
 chromosome_len = 5
 generation_num = 30
 mutation_rate = 0.01
-# each row is a genotype, e.g. chromosome, each column is a gene
+# each row is a genotype, e.g. chromosome, each column is bit of a single gene
 population = np.random.randint(0, 2, (population_size, chromosome_len))
 previous_prb_list = np.zeros(population_size)
 diff_list = np.zeros(population_size)
