@@ -1,7 +1,6 @@
-import numpy as np
 import matplotlib.pyplot as plt
 
-from predict_correct_setup import *
+from chapter12.predict_correct_setup import *
 
 
 def track_light(turn_off):

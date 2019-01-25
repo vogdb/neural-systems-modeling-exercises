@@ -1,4 +1,4 @@
-from util import *
+from chapter4.tasks.util import *
 import matplotlib.pyplot as plt
 
 p_mtrx = np.array([

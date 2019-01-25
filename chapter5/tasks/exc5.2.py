@@ -1,5 +1,4 @@
-import numpy as np
-from util import *
+from chapter5.tasks.util import *
 import matplotlib.pyplot as plt
 
 pattern = np.array([1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0])

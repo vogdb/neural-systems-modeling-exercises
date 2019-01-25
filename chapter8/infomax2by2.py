@@ -1,5 +1,5 @@
 import numpy as np
-from infocomp import infocomp
+from chapter8.infocomp import infocomp
 
 px1, px2 = .5, .5
 train_num = 3000

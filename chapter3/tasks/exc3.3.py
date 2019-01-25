@@ -3,7 +3,7 @@ from __future__ import division
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import numpy as np
-from util import laminate_array_to_matrix
+from chapter3.tasks.util import laminate_array_to_matrix
 
 
 def generate_input(start, stop, distract=False, noise=False):

@@ -1,5 +1,4 @@
-import numpy as np
-from util import *
+from chapter5.tasks.util import *
 import matplotlib.pyplot as plt
 
 input = np.array([

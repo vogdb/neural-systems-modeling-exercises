@@ -1,6 +1,5 @@
-import numpy as np
 import matplotlib.pyplot as plt
-from grid_world_setup import *
+from chapter11.grid_world_setup import *
 
 n_its = 1000
 TM, r, ex_vals = create_grid()

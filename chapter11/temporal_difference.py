@@ -1,6 +1,5 @@
-import numpy as np
 import matplotlib.pyplot as plt
-from grid_world_setup import *
+from chapter11.grid_world_setup import *
 
 n_its = 3000
 lr = 0.1

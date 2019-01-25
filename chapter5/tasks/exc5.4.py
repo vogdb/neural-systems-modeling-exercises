@@ -1,5 +1,4 @@
-import numpy as np
-from util import *
+from chapter5.tasks.util import *
 np.set_printoptions(precision=2)
 
 pattern_list = []

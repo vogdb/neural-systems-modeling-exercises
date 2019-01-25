@@ -1,5 +1,5 @@
 import numpy as np
-from infocomp import infocomp
+from chapter8.infocomp import infocomp
 
 n_out = 1  # number of output units
 px1 = .9

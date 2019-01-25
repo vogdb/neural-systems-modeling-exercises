@@ -1,7 +1,7 @@
 import numpy as np
 from sklearn.preprocessing import normalize
 from scipy.optimize import fsolve
-from infocomp import infocomp
+from chapter8.infocomp import infocomp
 
 n_x = 20  # number of input states
 stf = 1  # input spatial field

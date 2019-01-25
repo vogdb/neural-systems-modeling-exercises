@@ -1,7 +1,4 @@
-import numpy as np
-import matplotlib.pyplot as plt
-
-from .predict_correct_setup import *
+from chapter12.predict_correct_setup import *
 
 n_out = 1
 n_in = n_space + 2

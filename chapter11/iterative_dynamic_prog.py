@@ -1,5 +1,4 @@
-import numpy as np
-from grid_world_setup import *
+from chapter11.grid_world_setup import *
 
 n_its = 100
 TM, r, ex_vals = create_grid()
